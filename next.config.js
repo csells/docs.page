@@ -17,19 +17,19 @@ module.exports = withTM({
   },
   async rewrites() {
     return {
-      beforeFiles: [
-        // Catch any `https://docs.page` or `https://customdomain.com` requests are prepend the host
-        {
-          source: '/',
-          has: [
-            {
-              type: 'host',
-              value: '(?<host>.*)',
-            },
-          ],
-          destination: '/:host',
-        },
-      ],
+      // beforeFiles: [
+      //   // Catch any `https://docs.page` or `https://customdomain.com` requests are prepend the host
+      //   {
+      //     source: '/',
+      //     has: [
+      //       {
+      //         type: 'host',
+      //         value: '(?<host>.*)',
+      //       },
+      //     ],
+      //     destination: '/:host',
+      //   },
+      // ],
       afterFiles: [
         // Catch all other requests and prepend the host
         {
