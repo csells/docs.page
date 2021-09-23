@@ -25,7 +25,7 @@ export function Heading(props: HeadingProps): JSX.Element {
     return createElement(type, props);
   }
 
-  const renderChildren = (children: ReactNode) => (
+  const renderChildren = (children: ReactNode): ReactNode => (
     <span className="flex group">
       <span>{children}</span>
       <a
@@ -40,7 +40,7 @@ export function Heading(props: HeadingProps): JSX.Element {
   return (
     <span className="relative">
       <a id={props.id} className="absolute -mt-16" />
-      {createElement(type, props, renderChildren(props.children))}
+      {createElement(type, [props], [renderChildren(props.children)])}
     </span>
   );
 }
