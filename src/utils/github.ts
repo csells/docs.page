@@ -234,7 +234,7 @@ export async function getGitHubContents(properties: Properties): Promise<Content
   );
 
   // if an error is thrown then the repo is not found, if the repo is private then response = { repository: null }
-  if (error || response.repository === null) {
+  if (error) {
     return null;
   }
 
