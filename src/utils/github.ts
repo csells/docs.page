@@ -27,7 +27,7 @@ const getGitHubToken = (() => {
   };
 })();
 
-export function getGithubGQLClient(): typeof graphql {
+function getGithubGQLClient(): typeof graphql {
   const token = getGitHubToken();
   if (!token.length) {
     throw new Error(
@@ -239,7 +239,7 @@ export async function getGitHubContents(properties: Properties): Promise<Content
   }
 
   return {
-    isFork: response.repository?.isFork,
+    isFork: response.repository.isFork,
     baseBranch: response.repository.baseBranch.name,
     config: response.repository.config?.text,
     md: response.repository.mdxIndex?.text ?? response.repository.mdx?.text,
