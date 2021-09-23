@@ -7,6 +7,9 @@ const withTM = require('next-transpile-modules')([
 const domains = require('./domains.json');
 
 module.exports = withTM({
+  experimental: {
+    swcLoader: false,
+  },
   async rewrites() {
     const beforeFiles = domains.map(([domain, repository]) => {
       const [organization, repo] = repository.split('/');
